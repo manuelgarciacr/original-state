@@ -22,13 +22,14 @@ function useCountState() {
     return countState;
 }
 
-function useCountUpdater() {
+const useCountUpdater = () => {
     const setCount = React.useContext(CountUpdaterContext);
     if (typeof setCount === 'undefined') {
         throw new Error('useCountUpdater must be used within a CountProvider');
     }
-    const increment = React.useCallback(() => setCount((c) => c + 1), [setCount]);
-    return increment;
+    //const increment = () => setCount((c) => c + 1);
+    const increment = React.useCallback((n) => setCount((c) => c + n), [setCount]);
+    return increment
 }
 
 export { CountProvider, useCountState, useCountUpdater };

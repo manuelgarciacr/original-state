@@ -39,7 +39,7 @@ const Counter = React.memo(function Counter() {
     return (
         <div style={{ border: '1px solid black', padding: 10 }}>
             {renderCount}
-            <button onClick={increment}>Increment count</button>
+            <button onClick={() => increment(2)}>Increment count</button>
         </div>
     );
 });
